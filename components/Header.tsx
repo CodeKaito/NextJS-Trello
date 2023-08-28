@@ -26,7 +26,7 @@ function Header() {
                             <button type="submit" hidden>Search</button>
                     </form>
 
-                    <Avatar name='Jerome' round size='50' color="#0055D1" shadow-xl cursor-pointer />
+                    <Avatar name='Jerome' round size='50' color="#0055D1" />
                 </div>
             </div>
 

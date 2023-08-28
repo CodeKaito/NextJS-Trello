@@ -8,6 +8,9 @@ function Header() {
     return (
         <header>
             <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl">
+
+                <div className="absolute" />
+
                 <Image
                     src="https://links.papareact.com/c2cdd5"
                     alt="trello"

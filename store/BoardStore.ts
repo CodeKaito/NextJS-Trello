@@ -6,8 +6,10 @@ interface BoardState {
 }
 
 const useBoardStore = create<BoardState>((set) => ({
-    board: null,
-    getBoard: () => {
-
+    board: {
+        columns: new Map<TypedColumn, Column>()
+    },
+    getBoard: async() => {
+        const board = await getBoard
     }
 }))

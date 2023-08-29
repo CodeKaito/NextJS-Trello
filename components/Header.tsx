@@ -10,7 +10,8 @@ function Header() {
             <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl">
 
                 <div 
-                    className="absolute 
+                    className="
+                        absolute 
                         top-0 
                         left-0
                         w-0
@@ -20,7 +21,10 @@ function Header() {
                         to-[#0055D1]
                         rounded-md
                         filter
-                        blur-3xl"
+                        blur-3xl
+                        opacity-50
+                        -z-50
+                        "
                 />
 
                 <Image

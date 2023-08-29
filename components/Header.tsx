@@ -9,7 +9,19 @@ function Header() {
         <header>
             <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl">
 
-                <div className="absolute" />
+                <div 
+                    className="absolute 
+                        top-0 
+                        left-0
+                        w-0
+                        h-96
+                        bg-gradient-to-br
+                        from-pink-400
+                        to-[#0055D1]
+                        rounded-md
+                        filter
+                        blur-3xl"
+                />
 
                 <Image
                     src="https://links.papareact.com/c2cdd5"
@@ -30,10 +42,10 @@ function Header() {
                 </div>
             </div>
 
-            <div className="flex items-center justify-center px-5 md:py-5">
+            <div className="flex items-center justify-center px-5 py-2 md:py-5">
                 <p className="flex items-center p-5 text-sm font-medium pr-5 shadow-xl rounded-xl w-fit bg-white italic max-w-3xl text-[#0055D1]">
                     <UserCircleIcon className="inline-block h-10 w-10 text-[#0055D1] mr-1" />
-                    GPT is summarising your tasks for the day...
+                    GPT's summarising your tasks for the day...
                 </p>
             </div>
         </header>

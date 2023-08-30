@@ -44,6 +44,8 @@ exports.useBoardStore = zustand_1.create(function (set) { return ({
     board: {
         columns: new Map()
     },
+    searchString: "",
+    setSearchString: function (searchString) { return set({ searchString: searchString }); },
     getBoard: function () { return __awaiter(void 0, void 0, void 0, function () {
         var board;
         return __generator(this, function (_a) {

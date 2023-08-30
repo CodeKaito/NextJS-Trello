@@ -3,6 +3,7 @@
 import { PlusCircleIcon } from "@heroicons/react/20/solid";
 import { Draggable, Droppable } from "react-beautiful-dnd"
 import TodoCard from "./TodoCard";
+import { useBoardStore } from "@/store/BoardStore";
 
 type Props = {
     id: TypedColumn;
@@ -14,6 +15,9 @@ const idToColumnText: { [key: string]: string; }
     = { "todo": "To Do", "inprogress": "In Progress", "done": "Done" }
 
 function Column({ id, todos, index}: Props) {
+
+    const [ searchString ] = useBoardStore((state) => [ state.searchString ]);
+
     return (
         <Draggable draggableId={id} index={index}>
             {(provided) => (
@@ -36,7 +40,14 @@ function Column({ id, todos, index}: Props) {
                                     </h2>
 
                                     <div className="space-y-2">
-                                        {todos.map((todo, index) => (
+                                        {todos.map((todo, index) => {
+                                            
+                                            if (
+                                                searchString && 
+                                                !todo.title.toLowerCase().includes(searchString.toLowerCase())) 
+                                                    return null;
+
+                                            return (
                                             <Draggable
                                                 key={todo.$id}
                                                 draggableId={todo.$id}
@@ -53,7 +64,7 @@ function Column({ id, todos, index}: Props) {
                                                     />
                                                 )}
                                             </Draggable> 
-                                        ))}
+                                        )})}
                                             {provided.placeholder}
                                             <div className="flex items-end justify-end p-2">
                                                 <button className="text-green-500 hover:text-green-600">

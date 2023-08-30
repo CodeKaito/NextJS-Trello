@@ -7,10 +7,11 @@ import Column from './Column';
 
 function Board() {
 
-  const [board, getBoard, setBoardState ] = useBoardStore((state) => [
+  const [board, getBoard, setBoardState, updateTodoInDb ] = useBoardStore((state) => [
     state.board,
     state.getBoard,
     state.setBoardState,
+    state.updateTodoInDb,
   ]);
 
   useEffect(() => {
@@ -65,6 +66,8 @@ function Board() {
       const newColumns = new Map(board.columns);
       newColumns.set(startCol.id, newCol);
 
+      updateTodoInDb(todoMoved, finishCol.id);
+
       setBoardState({ ...board, columns: newColumns});
     } else {
       // Drag to another column
@@ -82,6 +85,9 @@ function Board() {
         id: finishCol.id,
         todos: finishTodos,
       });
+
+      // Update in DB
+      updateTodoInDb(todoMoved, finishCol.id);
 
       setBoardState({ ...board, columns: newColumns })
     }

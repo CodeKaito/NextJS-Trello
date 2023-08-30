@@ -21,7 +21,8 @@ function Board() {
         state.board,
         state.getBoard,
         state.setBoardState,
-    ]; }), board = _a[0], getBoard = _a[1], setBoardState = _a[2];
+        state.updateTodoInDb,
+    ]; }), board = _a[0], getBoard = _a[1], setBoardState = _a[2], updateTodoInDb = _a[3];
     react_1.useEffect(function () {
         getBoard();
     }, [getBoard]);
@@ -62,6 +63,7 @@ function Board() {
             };
             var newColumns = new Map(board.columns);
             newColumns.set(startCol.id, newCol);
+            updateTodoInDb(todoMoved, finishCol.id);
             setBoardState(__assign(__assign({}, board), { columns: newColumns }));
         }
         else {
@@ -78,6 +80,8 @@ function Board() {
                 id: finishCol.id,
                 todos: finishTodos
             });
+            // Update in DB
+            updateTodoInDb(todoMoved, finishCol.id);
             setBoardState(__assign(__assign({}, board), { columns: newColumns }));
         }
     };

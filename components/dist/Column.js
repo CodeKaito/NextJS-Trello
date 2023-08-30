@@ -24,7 +24,9 @@ function Column(_a) {
         React.createElement(react_beautiful_dnd_1.Droppable, { droppableId: index.toString(), type: "card" }, function (provided, snapshot) { return (React.createElement("div", __assign({}, provided.droppableProps, { ref: provided.innerRef, className: "pb-2 p-2 rounded-2xl shadow-sm \n                                    " + (snapshot.isDraggingOver ? "bg-green-200" : "bg-white/50") }),
             React.createElement("h2", { className: "flex justify-between font-bold text-xl p-2" },
                 idToColumnText[id],
-                React.createElement("span", { className: "text-gray-500 bg-gray-200 rounded-full px-2 py-2 text-sm font-normal" }, todos.length)),
+                React.createElement("span", { className: "text-gray-500 bg-gray-200 rounded-full px-2 py-2 text-sm font-normal" }, !searchString
+                    ? todos.length
+                    : todos.filter(function (todo) { return todo.title.toLowerCase().includes(searchString.toLowerCase()); }).length)),
             React.createElement("div", { className: "space-y-2" },
                 todos.map(function (todo, index) {
                     if (searchString &&

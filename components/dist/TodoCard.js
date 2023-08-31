@@ -82,7 +82,7 @@ function TodoCard(_a) {
             React.createElement("p", null, todo.title),
             React.createElement("button", { onClick: function () { return deleteTask(index, todo, id); }, className: "text-red-500 hover:text-red-700" },
                 React.createElement(solid_1.XCircleIcon, { className: "ml-5 h-8 w-8" }))),
-        imageUrl && (React.createElement("div", null,
+        imageUrl && (React.createElement("div", { className: "h-full w-full rounded-b-md" },
             React.createElement(image_1["default"], { src: imageUrl, alt: "Task image", width: 400, height: 200, className: "w-full object-contain rounded-b-md" })))));
 }
 exports["default"] = TodoCard;

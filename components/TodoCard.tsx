@@ -54,7 +54,7 @@ function TodoCard({
 
         { /* Add image here */ }
         {imageUrl && (
-            <div>
+            <div className="h-full w-full rounded-b-md">
                 <Image 
                     src={imageUrl}
                     alt="Task image"

@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-var type = [
+var types = [
     {
         id: 'todo',
         name: 'Todo',

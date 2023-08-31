@@ -1,4 +1,4 @@
-const type = [
+const types = [
     {
         id: 'todo',
         name: 'Todo',
@@ -17,7 +17,7 @@ const type = [
         description: 'A task has been completed',
         color: 'bg-green-500',
     },
-]
+];
 
 function TaskTypeRadioGroup() {
   return (

@@ -16,10 +16,12 @@ var solid_1 = require("@heroicons/react/20/solid");
 var react_beautiful_dnd_1 = require("react-beautiful-dnd");
 var TodoCard_1 = require("./TodoCard");
 var BoardStore_1 = require("@/store/BoardStore");
+var ModalStore_1 = require("@/store/ModalStore");
 var idToColumnText = { "todo": "To Do", "inprogress": "In Progress", "done": "Done" };
 function Column(_a) {
     var id = _a.id, todos = _a.todos, index = _a.index;
     var searchString = BoardStore_1.useBoardStore(function (state) { return [state.searchString]; })[0];
+    var openModal = ModalStore_1.useModalStore(function (state) { return state.openModal; });
     return (React.createElement(react_beautiful_dnd_1.Draggable, { draggableId: id, index: index }, function (provided) { return (React.createElement("div", __assign({}, provided.draggableProps, provided.dragHandleProps, { ref: provided.innerRef }),
         React.createElement(react_beautiful_dnd_1.Droppable, { droppableId: index.toString(), type: "card" }, function (provided, snapshot) { return (React.createElement("div", __assign({}, provided.droppableProps, { ref: provided.innerRef, className: "pb-2 p-2 rounded-2xl shadow-sm \n                                    " + (snapshot.isDraggingOver ? "bg-green-200" : "bg-white/50") }),
             React.createElement("h2", { className: "flex justify-between font-bold text-xl p-2" },
@@ -36,7 +38,7 @@ function Column(_a) {
                 }),
                 provided.placeholder,
                 React.createElement("div", { className: "flex items-end justify-end p-2" },
-                    React.createElement("button", { className: "text-green-500 hover:text-green-600" },
+                    React.createElement("button", { onClick: openModal, className: "text-green-500 hover:text-green-600" },
                         React.createElement(solid_1.PlusCircleIcon, { className: "h-10 w-10" })))))); }))); }));
 }
 exports["default"] = Column;

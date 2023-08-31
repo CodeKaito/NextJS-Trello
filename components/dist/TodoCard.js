@@ -16,7 +16,7 @@ var solid_1 = require("@heroicons/react/20/solid");
 var BoardStore_1 = require("@/store/BoardStore");
 function TodoCard(_a) {
     var todo = _a.todo, index = _a.index, id = _a.id, innerRef = _a.innerRef, draggableProps = _a.draggableProps, dragHandleProps = _a.dragHandleProps;
-    var deleteTask = BoardStore_1.useBoardStore();
+    var deleteTask = BoardStore_1.useBoardStore().deleteTask;
     return (React.createElement("div", __assign({ className: "bg-white rounded-md space-y-2 drop-shadow-md" }, draggableProps, dragHandleProps, { ref: innerRef }),
         React.createElement("div", { className: "flex justify-between items-center p-5" },
             React.createElement("p", null, todo.title),

@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.Post = void 0;
 var server_1 = require("next/server");
+var openai_1 = require("@/openai");
 function Post(request) {
     return __awaiter(this, void 0, void 0, function () {
         var todos, response, data;
@@ -47,7 +48,7 @@ function Post(request) {
                 case 1:
                     todos = (_a.sent()).todos;
                     console.log(todos);
-                    return [4 /*yield*/, openai.createChatCompletion({
+                    return [4 /*yield*/, openai_1["default"].createChatCompletion({
                             model: "gpt-3.5-turbo",
                             temperature: "0.8",
                             n: 1,

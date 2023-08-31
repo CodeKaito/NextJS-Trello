@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import openai from "@/openai";
 
 export async function Post(request: Request) {
     // todos in the body of the POST request
@@ -20,9 +21,7 @@ export async function Post(request: Request) {
                 role: "user",
                 content: `Hi there, provide a summary of the following todos.
                     Count how many todos are in each category such as To do, in progess and done, then tell the user
-                    to have a productive day! Here's a data: ${JSON.stringify(
-                        todos
-                    )}`,
+                    to have a productive day! Here's a data: ${JSON.stringify(todos)}`,
             },
         ],
     });

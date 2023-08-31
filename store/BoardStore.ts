@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import {getTodosGroupedByColumns} from "@/lib/getTodosGroupedByColumn";
 import { databases, ID, storage } from '@/appwrite';
+// import uploadImage from '@/lib/uploadImage';
 
 interface BoardState {
     board: Board;

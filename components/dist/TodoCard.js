@@ -50,6 +50,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var solid_1 = require("@heroicons/react/20/solid");
 var react_1 = require("react");
+var image_1 = require("next/image");
 var BoardStore_1 = require("@/store/BoardStore");
 var getUrl_1 = require("@/lib/getUrl");
 function TodoCard(_a) {
@@ -80,6 +81,8 @@ function TodoCard(_a) {
         React.createElement("div", { className: "flex justify-between items-center p-5" },
             React.createElement("p", null, todo.title),
             React.createElement("button", { onClick: function () { return deleteTask(index, todo, id); }, className: "text-red-500 hover:text-red-700" },
-                React.createElement(solid_1.XCircleIcon, { className: "ml-5 h-8 w-8" })))));
+                React.createElement(solid_1.XCircleIcon, { className: "ml-5 h-8 w-8" }))),
+        imageUrl && (React.createElement("div", null,
+            React.createElement(image_1["default"], { src: imageUrl, alt: "Task image", width: 400, height: 200, className: "w-full object-contain rounded-b-md" })))));
 }
 exports["default"] = TodoCard;

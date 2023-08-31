@@ -11,7 +11,7 @@ function Board() {
     state.board,
     state.getBoard,
     state.setBoardState,
-    state.updateTodoInDb,
+    state.updateTodoInDB,
   ]);
 
   useEffect(() => {

@@ -21,7 +21,7 @@ function Board() {
         state.board,
         state.getBoard,
         state.setBoardState,
-        state.updateTodoInDb,
+        state.updateTodoInDB,
     ]; }), board = _a[0], getBoard = _a[1], setBoardState = _a[2], updateTodoInDb = _a[3];
     react_1.useEffect(function () {
         getBoard();

@@ -1,5 +1,7 @@
 'use client';
 
+import { useBoardStore } from "@/store/BoardStore";
+
 const types = [
     {
         id: 'todo',
@@ -22,8 +24,14 @@ const types = [
 ];
 
 function TaskTypeRadioGroup() {
+
+    const [setNewTaskType, newTaskType] = useBoardStore((state) => [
+        state.setNewTaskType,
+        state.newTaskType,
+    ]);
+
   return (
-    <div></div>
+    <div>TaskTypeRadioGroup</div>
   )
 }
 

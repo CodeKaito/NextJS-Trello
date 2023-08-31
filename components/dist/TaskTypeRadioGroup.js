@@ -1,6 +1,7 @@
 'use client';
 "use strict";
 exports.__esModule = true;
+var BoardStore_1 = require("@/store/BoardStore");
 var types = [
     {
         id: 'todo',
@@ -22,6 +23,10 @@ var types = [
     },
 ];
 function TaskTypeRadioGroup() {
-    return (React.createElement("div", null));
+    var _a = BoardStore_1.useBoardStore(function (state) { return [
+        state.setNewTaskType,
+        state.newTaskType,
+    ]; }), setNewTaskType = _a[0], newTaskType = _a[1];
+    return (React.createElement("div", null, "TaskTypeRadioGroup"));
 }
 exports["default"] = TaskTypeRadioGroup;

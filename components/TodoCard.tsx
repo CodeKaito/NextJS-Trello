@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Draggable, DraggableProvidedDraggableProps, DraggableProvidedDragHandleProps } from "react-beautiful-dnd";
 import Image from "next/image";
 import { useBoardStore } from "@/store/BoardStore";
+import getUrl from "@/lib/getUrl";
 
 type Props = {
     todo: Todo;
@@ -25,6 +26,20 @@ function TodoCard({
 }: Props) {
 
     const { deleteTask } = useBoardStore();
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+
+  useEffect(() => {
+    if (todo.image) {
+      const fetchImage = async () => {
+        const url = await getUrl(todo.image!);
+            if (url) {
+                setImageUrl(url.toString());
+            }
+        };
+        fetchImage();
+        }
+    }, [todo]);
 
     return (
         <div className="bg-white rounded-md space-y-2 drop-shadow-md"

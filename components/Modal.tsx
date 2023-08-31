@@ -1,22 +1,38 @@
 'use client';
 
-import { useState, Fragment } from 'react'
+import { useState, Fragment, useRef, FormEvent } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useModalStore } from '@/store/ModalStore';
 import { useBoardStore } from '@/store/BoardStore';
+import TaskTypeRadioGroup from './TaskTypeRadioGroup';
+import Image from 'next/image';
+import { PhotoIcon } from '@heroicons/react/20/solid';
 
 function Modal() {
-    const [newTaskInput, setNewTaskInput] = useBoardStore((state) => [
-        state.newTaskInput,
-        state.setNewTaskInput,
+
+    const { addTask, image, setImage, newTaskType, newTaskInput, setNewTaskInput } = useBoardStore();
+  
+    const [isOpen, closeModal] = useModalStore((state) => [
+    state.isOpen,
+    state.closeModal,
     ]);
 
-    const [isOpen, closeModal] = useModalStore((state) => [ state.isOpen, state.closeModal ]);
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!newTaskInput) return;
+
+    addTask(newTaskInput, newTaskType, image);
+
+    setImage(null);
+    closeModal();
+    }
+
+    const imagePickerRef = useRef<HTMLInputElement>(null);
 
     return (
     // Use the `Transition` component at the root level
     <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as='form' className='relative z-10' onClose={closeModal}>
+        <Dialog onSubmit={handleSubmit} as='form' className='relative z-10' onClose={closeModal}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-out duration-300"
@@ -54,6 +70,53 @@ function Modal() {
                                         className='w-full border border-gray-300 rounded-md outline-none p-5'
                                         />
                                 </div>
+
+                                <TaskTypeRadioGroup />
+
+                                <div>
+                                    <button 
+                                        type='button'
+                                        onClick={() => {
+                                            imagePickerRef.current?.click()
+                                        }}
+                                        className='w-full border border-gray-300 rounded-md outline-none p-5 focus-visible:ring-2
+                                        focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
+                                        <PhotoIcon 
+                                            className='w-6 h-6 mr-2 inline-block'
+                                        />
+                                    </button>
+                                    { image && (
+                                        <Image
+                                            alt="Uploaded Image"
+                                            width={200}
+                                            height={200}
+                                            className='w-full h-44 object-cover mt-2 filter hover:grayscale 
+                                                transition-all duration-150 cursor-not-allowed'
+                                            src={URL.createObjectURL(image)}
+
+                                            onClick={() => {
+                                                setImage(null);
+                                            }}
+                                        />
+                                    )}
+                                    <input type="file"
+                                        ref={imagePickerRef}
+                                        hidden
+                                        onChange={(e) => {
+                                            if (!e.target.files![0].type.startsWith('image/')) return;
+                                            setImage(e.target.files![0]);
+                                        }}
+                                        />
+                                </div>
+
+                                <div className="mt-2 justify-center align-middle content-center flex">
+                                    <button
+                                        type="submit"
+                                        className="bg-blue-100 text-blue-900 p-2 rounded-md focus-visible:ring-2 focus-visible:ring-blue-900 focus:outline-none w-full focus-visible:ring-offset-2 disabled:text-gray-300 disabled:bg-gray-100"
+                                        disabled={!newTaskInput}
+                                    >Add Task</button>
+                                </div>
+
                         </Dialog.Panel>
                 </Transition.Child>
             </div>

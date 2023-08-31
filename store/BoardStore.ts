@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import {getTodosGroupedByColumns} from "@/lib/getTodosGroupedByColumn";
 import { databases, ID, storage } from '@/appwrite';
+import uploadImage from '@/lib/uploadImage';
 // import uploadImage from '@/lib/uploadImage';
 
 interface BoardState {
@@ -11,6 +12,7 @@ interface BoardState {
     newTaskInput: string;
     setNewTaskInput: (input: string) => void;
     newTaskType: TypedColumn;
+
     setNewTaskType: (task: TypedColumn) => void;
 
     searchString: string;
@@ -81,8 +83,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
     }
 
     const { $id } = await databases.createDocument(
-      process.env.NEXT_PUBLIC_DATABASE_ID,
-      process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID,
+      process.env.NEXT_PUBLIC_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
       ID.unique(),
       {
         title: todo,
@@ -116,7 +118,7 @@ export const useBoardStore = create<BoardState>((set, get) => ({
 
       return {
         board: {
-          columns: newColumns
+          columns: newColumns,
         }
       }
     })

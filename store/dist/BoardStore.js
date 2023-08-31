@@ -51,6 +51,7 @@ exports.useBoardStore = void 0;
 var zustand_1 = require("zustand");
 var getTodosGroupedByColumn_1 = require("@/lib/getTodosGroupedByColumn");
 var appwrite_1 = require("@/appwrite");
+var uploadImage_1 = require("@/lib/uploadImage");
 exports.useBoardStore = zustand_1.create(function (set, get) { return ({
     board: {
         columns: new Map()
@@ -116,7 +117,7 @@ exports.useBoardStore = zustand_1.create(function (set, get) { return ({
             switch (_a.label) {
                 case 0:
                     if (!image) return [3 /*break*/, 2];
-                    return [4 /*yield*/, uploadImage(image)];
+                    return [4 /*yield*/, uploadImage_1["default"](image)];
                 case 1:
                     fileUploaded = _a.sent();
                     console.log("Uploaded image", fileUploaded);

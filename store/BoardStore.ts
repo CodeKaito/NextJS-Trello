@@ -10,6 +10,7 @@ interface BoardState {
 
     searchString: string;
     setSearchString: (searchString: string) => void;
+
 }
 
 export const useBoardStore = create<BoardState>((set) => ({
@@ -37,4 +38,5 @@ export const useBoardStore = create<BoardState>((set) => ({
             }
         )
     }
+    
 }))

@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 import openai from "@/openai";
 
-export async function Post(request: Request) {
+export async function POST(request: Request) {
     // todos in the body of the POST request
     const { todos } = await request.json()
-    console.log(todos);
 
     // Comunication with OpenAI GPT API
     const response = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
+        model: "gpt-3.5",
         temperature: "0.8",
         n: 1,
         stream: false,
@@ -27,9 +26,6 @@ export async function Post(request: Request) {
     });
 
     const { data } = await response;
-
-    console.log("DATA IS:", data);
-    console.log(data.choices[0].message);
 
     return NextResponse.json(data.choices[0].message);
 }

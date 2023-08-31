@@ -36,20 +36,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.Post = void 0;
+exports.POST = void 0;
 var server_1 = require("next/server");
 var openai_1 = require("@/openai");
-function Post(request) {
+function POST(request) {
     return __awaiter(this, void 0, void 0, function () {
         var todos, response, data;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.json()];
+                case 0: return [4 /*yield*/, request.json()
+                    // Comunication with OpenAI GPT API
+                ];
                 case 1:
                     todos = (_a.sent()).todos;
-                    console.log(todos);
                     return [4 /*yield*/, openai_1["default"].createChatCompletion({
-                            model: "gpt-3.5-turbo",
+                            model: "gpt-3.5",
                             temperature: "0.8",
                             n: 1,
                             stream: false,
@@ -69,11 +70,9 @@ function Post(request) {
                     return [4 /*yield*/, response];
                 case 3:
                     data = (_a.sent()).data;
-                    console.log("DATA IS:", data);
-                    console.log(data.choices[0].message);
                     return [2 /*return*/, server_1.NextResponse.json(data.choices[0].message)];
             }
         });
     });
 }
-exports.Post = Post;
+exports.POST = POST;

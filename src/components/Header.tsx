@@ -38,7 +38,7 @@ function Header() {
   return (
     <header>
       <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl">
-        <div className="absolute top-0 left-0 h-96 w-full bg-gradient-to-br from-pink-400 via-slate-[#0055D1] to-[#005] rounded-b-md -z-50 opacity-50 blur-3xl" />
+        <div className="absolute top-0 left-0 h-96 w-full bg-gradient-to-br from-white via-slate-[#0055D1] to-[#28bbce] rounded-b-md -z-50 opacity-50 blur-3xl" />
         <Image
           src="https://links.papareact.com/c2cdd5"
           alt="Trello logo"

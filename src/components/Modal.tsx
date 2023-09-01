@@ -117,7 +117,7 @@ export default function Modal() {
                   <div className="mt-2">
                     <button
                       type="submit"
-                      className="bg-blue-100 text-blue-900 p-2 rounded-md focus-visible:ring-2 focus-visible:ring-blue-900 focus:outline-none focus-visible:ring-offset-2 disabled:text-gray-300 disabled:bg-gray-100"
+                      className="bg-blue-100 text-blue-900 p-2 rounded-md focus-visible:ring-2 focus-visible:ring-blue-500 focus:outline-none focus-visible:ring-offset-2 disabled:text-gray-300 disabled:bg-gray-100 w-full"
                       disabled={!newTaskInput}
                     >
                       Add Task

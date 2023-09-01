@@ -56,13 +56,13 @@ function Header() {
             </button>
           </form>
           {/* Avatar */}
-          <Avatar name="Sankar" round size="50" color="#0055D1" />
+          <Avatar name="Jerome" round size="50" color="#0055D1" />
         </div>
       </div>
       <div className="flex justify-center px-5 py-2 md:py-5">
         <p className="bg-white rounded-md shadow-md p-2 text-[#0055D1]">
             <UserCircleIcon className={`inline-block h-10 w-10 text-[#0055D1] mr-1 ${loading && "animate-spin"}`} />
-            {(suggestion.length !==0) ? `You have ${(suggestion[0]===1) ? "1 task to do" : `${suggestion[0]} tasks to do`}, ${(suggestion[1]===1) ? "1 task in progress" : `${suggestion[1]} tasks in progress `} and ${(suggestion[2]===1) ? "1 task done" : `${suggestion[2]} tasks done`}` : "We are summarising your tasks for the day"}
+            {(suggestion.length !==0) ? `You have ${(suggestion[0]===1) ? "1 task to do" : `${suggestion[0]} tasks to do`}, ${(suggestion[1]===1) ? "1 task in progress" : `${suggestion[1]} tasks in progress `} and ${(suggestion[2]===1) ? "1 task done" : `${suggestion[2]} tasks done`}` : "Hello, We are summarising your tasks for the day"}
         </p>
       </div>
     </header>

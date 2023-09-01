@@ -82,10 +82,10 @@ function Header() {
                     React.createElement(solid_1.MagnifyingGlassIcon, { className: "h-6 w-6 text-gray-400" }),
                     React.createElement("input", { type: "text", placeholder: "Search", value: searchString, onChange: function (e) { return setSearchString(e.target.value); }, className: "flex-1" }),
                     React.createElement("button", { type: "submit", hidden: true }, "Search")),
-                React.createElement(react_avatar_1["default"], { name: "Sankar", round: true, size: "50", color: "#0055D1" }))),
+                React.createElement(react_avatar_1["default"], { name: "Jerome", round: true, size: "50", color: "#0055D1" }))),
         React.createElement("div", { className: "flex justify-center px-5 py-2 md:py-5" },
             React.createElement("p", { className: "bg-white rounded-md shadow-md p-2 text-[#0055D1]" },
                 React.createElement(solid_1.UserCircleIcon, { className: "inline-block h-10 w-10 text-[#0055D1] mr-1 " + (loading && "animate-spin") }),
-                (suggestion.length !== 0) ? "You have " + ((suggestion[0] === 1) ? "1 task to do" : suggestion[0] + " tasks to do") + ", " + ((suggestion[1] === 1) ? "1 task in progress" : suggestion[1] + " tasks in progress ") + " and " + ((suggestion[2] === 1) ? "1 task done" : suggestion[2] + " tasks done") : "We are summarising your tasks for the day"))));
+                (suggestion.length !== 0) ? "You have " + ((suggestion[0] === 1) ? "1 task to do" : suggestion[0] + " tasks to do") + ", " + ((suggestion[1] === 1) ? "1 task in progress" : suggestion[1] + " tasks in progress ") + " and " + ((suggestion[2] === 1) ? "1 task done" : suggestion[2] + " tasks done") : "Hello, We are summarising your tasks for the day"))));
 }
 exports["default"] = Header;

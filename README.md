@@ -35,8 +35,8 @@ This repository contains the code for creating a Trello clone using Next.js 13 a
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/yourusername/trello-clone.git
-   cd trello-clone
+   git clone https://github.com/codekaito/nextjs-trello.git
+   cd nextjs-trello
    ```
 
 2. Install dependencies:
